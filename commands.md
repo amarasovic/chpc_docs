@@ -27,10 +27,16 @@ conda create -n <env_name> python=3.7
 conda activate <env_name>
 ```
 
-Usually there is a .txt file with requirements and we run: `pip install -r requirements.txt`. You might get this error: `RuntimeError: CUDA error: no kernel image is available for execution on the device` if your cuda drivers and pytorch version do not match. I personally check cuda drivers by running `nvidia-smi` (upper right corner). You can go to https://pytorch.org/ and get a command for right drivers. E.g., for cuda drivers 11.6 I run: `pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116`/
+In a repo with code you're trying to run, you'll usually see a `requirements.txt` file with required packages. If so, you can run: 
+```
+pip install -r requirements.txt
+```
+
+You might get this error: `RuntimeError: CUDA error: no kernel image is available for execution on the device` if your cuda drivers and pytorch version do not match. I personally check cuda drivers by running `nvidia-smi` (upper right corner). You can go to https://pytorch.org/ and get a command for right drivers. E.g., for cuda drivers 11.6 I run: `pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116`/
 
 ## Cuda drivers 
-When you run 
+
+When SSH-ed on CHPC's servers/nodes, when you run 
 `which nvcc` and cuda drivers are loaded, you'll see something like: `/uufs/chpc.utah.edu/sys/spack/linux-rocky8-nehalem/gcc-8.5.0/cuda-11.6.2-hgkn7czv7ciyy3gtpazwk2s72msbw6l2/bin/nvcc`
 
 If not you need to load them: 
@@ -81,11 +87,11 @@ and run: `sbatch <script name>.sh`.
 
 For example: 
 
-1. `salloc -A marasovic-gpu-np -p marasovic-gpu-np -n 32 -N 1 --gres=gpu:a100:1 -t 8:00:00 --mem=24GB` 
+1. `salloc -A marasovic-gpu-np -p marasovic-gpu-np -n 32 -N 1 --gres=gpu:a100:1 -t 1:00:00 --mem=40GB` 
 
 2. `python ...`
 
-WARNING: If you allocate a GPU but do not use it, you are wasting the resource! Until your interactive session is not over, other jobs are waiting. 
+WARNING: Use sporadically. If you allocate a GPU but do not use it, you are wasting the resource! Until your interactive session is not over, other jobs are waiting. 
 
 ## Checking jobs 
 
