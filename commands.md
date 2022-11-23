@@ -49,7 +49,9 @@ You need to install pytorch version for your cuda drviers' version, e.g., for 11
 
 ## [CHPC](https://www.chpc.utah.edu/documentation/index.php) 
 
-The list of nodes and corresponding GPU types can be found [here](https://www.chpc.utah.edu/documentation/guides/gpus-accelerators.php) under "GPU Hardware Overview > GPU node list". 
+The list of nodes and corresponding GPU types can be found [here](https://www.chpc.utah.edu/documentation/guides/gpus-accelerators.php) under "GPU Hardware Overview > GPU node list".
+
+**To view a list of accounts and partitions that are available to you, run command `myallocation`.**
 
 SOTA GPUs are A100s. Check the comparison between GPUs [here](https://lambdalabs.com/gpu-benchmarks), and [nvidia](https://www.nvidia.com/en-us/data-center/a100/) says: 
 > "A100 provides up to 20X higher performance over the prior generation and can be partitioned into seven GPU instances to dynamically adjust to shifting demands. The A100 80GB debuts the world's fastest memory bandwidth at over 2 terabytes per second (TB/s) to run the largest models and datasets". 
