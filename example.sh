@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --account marasovic-gpu-np
 #SBATCH --partition marasovic-gpu-np
-#SBATCH --ntasks=32
+#SBATCH --ntasks-per-node=32
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:a100:1
 #SBATCH --time=8:00:00
